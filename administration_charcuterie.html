@@ -5,97 +5,44 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
-	<head>
-		<title>VISION gestion de vos écrans</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body id="top">
+<head>
+	<title>VISION gestion de vos écrans</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/vision.js"></script>	
+</head>
+<body id="top">
 
-			<!-- Banner -->
-			<!--
+	<!-- Banner -->
+	<!--
 				To use a video as your background, set data-video to the name of your video without
 				its extension (eg. images/banner). Your video must be available in both .mp4 and .webm
 				formats to work correctly.
 			-->
-				<section id="banner" data-video="images/banner">
-					<div class="inner">
-						<header>
-							<h1>CHARCUTERIE</h1>
-						</header>
-						<a href="#main" class="more">Learn More</a>
-					</div>
-				</section>
-
-<p>
-    <script src="assets/js/jquery.min.js"></script>
-
-<a href="index.html">	<input class="btn btn-success" type="submit" name="submit" value="Revenir à la page principale" /></a>
-	<h2>Envoyez vos médias sur l'écran Charcuterie</h2>
-<form id="fileUploadForm" method="POST" enctype="multipart/form-data">
-     <input type="file" name="file" multiple/><br />
-     <input class="btn btn-success" id="btnSubmit" type="submit" name="submit" value="Envoyer" />
-</form>
-
-<script>
-$(document).ready(function () {
-	//This functions needs to be moved to a dedicated JS file as it will be used in all screens
-    $("#btnSubmit").click(function (event) {
-
-        //stop submit the form, we will post it manually.
-        event.preventDefault();
-
-        // Get form
-        var form = $('#fileUploadForm')[0];
-
-		// Create an FormData object 
-        var data = new FormData(form);
-
-		// disabled the submit button
-        $("#btnSubmit").prop("disabled", true);
-
-        $.ajax({
-            type: "POST",
-            enctype: 'multipart/form-data',
-            url: "http://localhost:10000/api/files",
-            data: data,
-            processData: false,
-            contentType: false,
-            cache: false,
-            timeout: 600000,
-            success: function (data) {
-                console.log("SUCCESS : ", data);
-                $("#btnSubmit").prop("disabled", false);
-                
-                // This needs to be a callable function
-                $(document).ready(function () {
-                	let dropdown = $('#myFiles');
-
-                	dropdown.empty();
-
-                	dropdown.append('<option selected="true" disabled>Choose a file</option>');
-                	dropdown.prop('selectedIndex', 0);
-
-                	const url = 'http://localhost:10000/api/files';
-
-                	$.getJSON(url, function (response) {
-                	  $.each(response.data, function (key, entry) {
-                	    dropdown.append($('<option></option>').attr('value', entry).text(entry));
-                	  })
-                	});
-                	});
-            },
-            error: function (e) {
-                console.log("ERROR : ", e);
-                $("#btnSubmit").prop("disabled", false);
-            }
-        });
-    });
-});
-</script>
-
-<select id="myFiles" multiple>
-</select>
+	<section id="banner" data-video="images/banner">
+		<div class="inner">
+			<header>
+				<h1>CHARCUTERIE</h1>
+			</header>
+			<a href="#main" class="more">Learn More</a>
+		</div>
+	</section>
+	
+	<section>
+		<a href="index.html"> <input class="btn btn-success" type="submit"name="submit" value="Revenir à la page principale" /></a>
+		<h2>Envoyez vos médias sur l'écran Charcuterie</h2>
+	
+		<form id="fileUploadForm" method="POST" enctype="multipart/form-data">
+			<input type="file" name="file" multiple /><br /> 
+			<input class="btn btn-success" id="btnSubmit" type="submit" name="submit" value="Envoyer" />
+		</form>
+			
+		<select id="myFiles" size="10">    
+			<optgroup label="Choose One">
+			</optgroup>
+		</select>
+	</section>
 </body>
 </html>
