@@ -1,19 +1,21 @@
-$(document).ready(perdiocDataRefresh());
+var ws = new WebSocket("ws://localhost:10000/files");
+//ws.onopen = function() {
+    
+    // Web Socket is connected, send data using send()
+    //ws.send("Sending the message");
+    //alert("Message is sent...");
+ //};
+ ws.onmessage = function (evt) { 
+	 fileListRefresh(evt.data);
+ };
 
-function perdiocDataRefresh() {
-	const url = 'http://localhost:10000/api/files';
+function fileListRefresh(wsmessage) {	
 	var dropdown = $('#myFiles');
-
-	$.getJSON(url, function(response) {
-		$.each(response.data, function(key, value) {
-			dropdown.append($('<option></option>').attr('value', value).text(value));
-		})
+	var jsonMessage = JSON.parse(wsmessage);
+	dropdown.empty();	
+	$.each(jsonMessage.data, function(key, value) {
+		dropdown.append($('<option></option>').attr('value', value).text(value));
 	})
-	.complete(function() {
-	    // schedule the next request *only* when the current one is complete:
-	    setTimeout(perdiocDataRefresh, 5000);
-		console.log( "Execution completed" );
-	});
 };
 
 $(document).ready(function () {
