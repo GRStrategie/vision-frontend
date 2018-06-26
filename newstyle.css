@@ -1,0 +1,30 @@
+/*HEADER*/
+
+#banner{
+	width: 100%
+	margin: 0 auto;
+	background-color: black;
+	font-size: 100px;
+	color: white;
+	text-align: center;
+
+}
+.container{
+	text-align: center;
+}
+
+ul li#listeEcrans{
+	list-style-type: none;
+	background-color: black;
+	width: 20%;
+	color: white;
+	margin: 0 auto;
+}
+
+ul#nav{
+	display: inline;
+}
+
+li#nav{
+	display: inline;
+}
