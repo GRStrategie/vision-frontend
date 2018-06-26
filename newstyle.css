@@ -13,10 +13,18 @@
 	text-align: center;
 }
 
-ul li{
+ul li#listeEcrans{
 	list-style-type: none;
 	background-color: black;
 	width: 20%;
 	color: white;
 	margin: 0 auto;
+}
+
+ul#nav{
+	display: inline;
+}
+
+li#nav{
+	display: inline;
 }

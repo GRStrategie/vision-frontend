@@ -8,7 +8,15 @@
 	<link rel="stylesheet" type="text/css" href="newstyle.css">
 </head>
 <header>
-	<div id="banner">BANNIERE</p></div>
+	<div>
+		<div id="banner">BANNIERE</div>
+
+		<ul id="nav">
+			<li><a href="#listeEcrans">Gérez vos écrans</a></li>
+			<li><a href="#listePlaylist">Gérez vos playlists</a></li>
+		</ul>
+
+	</div>
 </header>
 
 <body>	
@@ -24,10 +32,10 @@
 		</form>
 	</section>
 
-<form method="POST" enctype="multipart/form-data">
+<form  method="POST" enctype="multipart/form-data">
 	<div class="container">
 		<p>Sélectionnez les éléments à supprimer de l'écran</p>
-		<ul>
+		<ul id="listeEcrans">
 			<li>Votre écran 1 <input type="checkbox" name="#" class="delete"></li>
 			<li>Votre écran 2 <input type="checkbox" name="#" class="delete"></li>
 			<li>Votre écran 3 <input type="checkbox" name="#" class="delete"></li>
@@ -40,9 +48,9 @@
 </form>
 
 
-<form  method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data">
 		<p>Sélectionnez les éléments à supprimer de l'écran</p>
-		<ul>
+		<ul id="listePlaylist">
 			<li>Ma playlist 1 <input type="checkbox" name="#" class="delete"></li>
 			<li>Ma playlist 2 <input type="checkbox" name="#" class="delete"></li>
 			<li>Ma playlist 3 <input type="checkbox" name="#" class="delete"></li>
