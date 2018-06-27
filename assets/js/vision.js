@@ -1,13 +1,16 @@
-var ws = new WebSocket("ws://localhost:10000/files");
-//ws.onopen = function() {
-    
-    // Web Socket is connected, send data using send()
-    //ws.send("Sending the message");
-    //alert("Message is sent...");
- //};
- ws.onmessage = function (evt) { 
-	 fileListRefresh(evt.data);
- };
+$(document).one('ready', function(){
+	var ws = new WebSocket("ws://localhost:10000/files");
+	ws.onopen = function() {
+		console.log("opened websocket");
+	 };
+	 ws.onmessage = function (evt) { 
+		 fileListRefresh(evt.data);
+	 };	 
+	 ws.onclose = function () { 
+		 console.log("closed websocket");
+	 };
+});
+
 
 function fileListRefresh(wsmessage) {	
 	var dropdown = $('#myFiles');
@@ -19,7 +22,12 @@ function fileListRefresh(wsmessage) {
 };
 
 $(document).ready(function () {
-	//This functions needs to be moved to a dedicated JS file as it will be used in all screens
+	$('input:file').on("change", function() {
+	    $('input:submit').prop('disabled', !$(this).val()); 
+	});
+});
+
+$(document).ready(function () {
     $("#btnSubmit").click(function (event) {
 
         //stop submit the form, we will post it manually.
@@ -45,11 +53,13 @@ $(document).ready(function () {
             timeout: 600000,
             success: function (data) {
                 console.log("SUCCESS : ", data);
-                $("#btnSubmit").prop("disabled", false);                
+                $("#btnSubmit").prop("disabled", true); 
+                $("#file").val("");
             },
             error: function (e) {
                 console.log("ERROR : ", e);
-                $("#btnSubmit").prop("disabled", false);
+                $("#btnSubmit").prop("disabled", true);
+                $("#file").val("");
             }
         });
     });

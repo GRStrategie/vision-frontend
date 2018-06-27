@@ -6,7 +6,6 @@
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/vision.js"></script>	
 	<link rel="stylesheet" type="text/css" href="assets/css/newstyle.css">
-	<script src="testRecopy.js"></script>
 </head>
 <header>
 	<div>
@@ -23,13 +22,13 @@
 <body>	
 	<section>
 		<form id="fileUploadForm" method="POST" enctype="multipart/form-data">
-			<input type="file" name="file" multiple /><br/> 
+			<input type="file" name="file" multiple="multiple" id="file"/><br/> 
 			<p>Choisissez la période de validité de vos écrans</p>
 			<input type="date" name="validity" >
 			<p>Si vous choisissez plusieurs écrans, ils seront regroupés en Playlist</p>
 			<p>Entrez le nom de la Playlist ci-dessous :</p>
 			<input type="text" name="playlisName"> <br/>
-			<input class="submitbutton" id="btnSubmit" type="submit" name="submit" value="Envoyer vos écrans">
+			<input class="submit" id="btnSubmit" type="submit" name="submit" disabled value="Envoyer vos écrans">
 		</form><br/>
 			
 		<select id="myFiles" multiple>    
@@ -38,6 +37,5 @@
 		</select>
 
 	</section>
-
 </body>
 </html>
