@@ -6,31 +6,39 @@
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/vision.js"></script>	
 	<link rel="stylesheet" type="text/css" href="assets/css/newstyle.css">
+	<meta name="viewport" content="width=device-width, intial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </head>
 <header>
 	<div>
-		<div id="banner">BANNIERE</div>
+		<div class="container-fluid" id="banner">BANNIERE</div>
 
-		<ul id="nav">
-			<li><a href="#listeEcrans">Gérez vos écrans</a></li>
-			<li><a href="#listePlaylist">Gérez vos playlists</a></li>
-		</ul>
-
+		<div id="nav" class="container-fluid">
+			<ul class="row">
+				<li><a class="block1" id="menuManageScreen" href="#listeEcrans">Gérez vos écrans</a></li>
+				<li><a class="block2" id="menuManagePlaylist" href="#listePlaylist">Gérez vos playlists</a></li>
+			</ul>
+		</div>
 	</div>
 </header>
 
 <body>	
 	<section>
-		<form id="fileUploadForm" method="POST" enctype="multipart/form-data">
-			<input type="file" name="file" multiple="multiple" id="file"/><br/> 
-			<p>Choisissez la période de validité de vos écrans</p>
-			<input type="date" name="validity" >
-			<p>Si vous choisissez plusieurs écrans, ils seront regroupés en Playlist</p>
-			<p>Entrez le nom de la Playlist ci-dessous :</p>
-			<input type="text" name="playlisName"> <br/>
-			<input class="submit" id="btnSubmit" type="submit" name="submit" disabled value="Envoyer vos écrans">
-		</form><br/>
-			
+		
+			<form id="fileUploadForm" method="POST" enctype="multipart/form-data">
+				<div class="form-group">
+					<input class="form-control" type="file" name="file" multiple="multiple" id="file"/><br/> 
+					<p>Choisissez la période de validité de vos écrans</p>
+					<input class="form-control" type="date" name="validity" >
+					<p>Si vous choisissez plusieurs écrans, ils seront regroupés en Playlist</p>
+					<p>Entrez le nom de la Playlist ci-dessous :</p>
+					<input class="form-control" type="text" name="playlisName"> <br/>
+					<input class="submit btn-block" id="btnSubmit" type="submit" name="submit" disabled value="Envoyer vos écrans">
+				</div>
+			</form><br/>
+		
+
 		<select id="myFiles" multiple>    
 			<optgroup label="Choose One">
 			</optgroup>

@@ -9,6 +9,23 @@
 	text-align: center;
 
 }
+/*menuSection*/
+#nav{
+
+}
+
+#menuManageScreen{
+	border: 1px solid;
+
+}
+#menuManagePlaylist{
+	border: 1px solid;
+
+}
+
+/*bodySection*/
+
+
 section{
 	text-align: center;
 }
@@ -21,4 +38,10 @@ section{
 
 ul li{
 	list-style: none;
+}
+ 	/*formSection*/
+
+form{
+	width: 30%;
+	margin: 0 auto;
 }
