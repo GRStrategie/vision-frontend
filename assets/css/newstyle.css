@@ -30,8 +30,12 @@ section{
 	text-align: center;
 }
 
-#myFiles{
-	width: 40%;
+#deleteMediaForm {
+	width: 50%;
+}
+
+#myFiles {
+	width: 50%;
 	background-color: #BDBDBD;
     margin: 0 auto;
 }
