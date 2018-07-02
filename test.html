@@ -34,15 +34,20 @@
 					<p>Si vous choisissez plusieurs écrans, ils seront regroupés en Playlist</p>
 					<p>Entrez le nom de la Playlist ci-dessous :</p>
 					<input class="form-control" type="text" name="playlisName"> <br/>
-					<input class="submit btn-block" id="btnSubmit" type="submit" name="submit" disabled value="Envoyer vos écrans">
+					<input class="submit btn-block" id="btnSubmit" type="submit" name="submit" value="Envoyer vos écrans">
 				</div>
 			</form><br/>
 		
 
+	<form id="deleteMediaForm" method="POST">
 		<select id="myFiles" multiple>    
 			<optgroup label="Choose One">
 			</optgroup>
 		</select>
+		<input class="submit btn-block" id="deleteBtnSubmit" type="submit" name="submit" value="Supprimer des écrans">
+	</form>
+		
+	
 
 	</section>
 </body>
