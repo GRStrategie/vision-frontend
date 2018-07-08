@@ -1,1 +1,0 @@
-$(#btnSubmit).button('loading');
